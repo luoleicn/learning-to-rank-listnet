@@ -62,7 +62,7 @@ public final class MSNormalizer implements Normalizer{
 				for (int i=0; i<featureSize; i++)
 				{
 					double val = doc.getFeatures().get(i);
-					
+
 					if (val > normalizer.maxmin.get(i).getMax())
 						normalizer.maxmin.get(i).setMax(doc.getFeatures().get(i));
 					if (val < normalizer.maxmin.get(i).getMin())

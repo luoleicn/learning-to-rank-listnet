@@ -27,7 +27,7 @@ public class Main {
 		/*
 		 * 训练以及持久化
 		 */
-		Module m = Trainer.train(new File("/home/luolei/LearningToRank/msdata/Fold1/train.txt"));
+		Module m = Trainer.train(new File(args[0]));
 		m.write(new File("msdata.listnet.module"));
 		
 		/*

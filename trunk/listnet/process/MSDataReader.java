@@ -95,7 +95,11 @@ public class MSDataReader implements DataReader{
 		}
 		
 		if (line == null)
+		{
 			res = this.sample;
+			this.sample = null;
+		}
+			
 		
 		return res;
 	}
