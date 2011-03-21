@@ -37,12 +37,13 @@ public class Trainer {
 	 */
 	public static Module train(File f) throws IOException, IllegalClassFormatException
 	{
+		System.out.println("Getting normaizer...");
 		Normalizer nor = MSNormalizer.getNormalizer(f);
 		DataReader reader = new MSDataReader(f);
 		int featureSize = reader.getNextSample().getDocuments().get(0).getFeatures().size();
 		
+		System.out.println("初始化权重（weights）...");
 		double[] weights = new double[featureSize];
-		//初始化权重（weights）
 		for (int i=0; i<featureSize; i++)
 		{
 			weights[i] = Parameters.getWeightInit();
@@ -51,6 +52,7 @@ public class Trainer {
 		//训练
 		for (int i=0; i<Parameters.getEpochNum(); i++)
 		{
+			System.out.println("training " + i + "/" + Parameters.getEpochNum());
 			reader.reset();
 			Sample sample = null;
 			while ((sample=reader.getNextSample()) != null)
