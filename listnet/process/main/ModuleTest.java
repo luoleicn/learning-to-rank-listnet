@@ -6,11 +6,15 @@
  */
 package listnet.process.main;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.lang.instrument.IllegalClassFormatException;
 import java.util.ArrayList;
 
+import listnet.data.Document;
+import listnet.data.MSDocument;
 import listnet.module.ListNetModule;
 import listnet.module.Module;
 import listnet.process.util.DotMultiply;
@@ -57,4 +61,19 @@ public class ModuleTest {
 		return DotMultiply.dotMutply(module.getWeights(), weights);
 	}
 	
+	public static void main(String[] args) throws IOException, IllegalClassFormatException
+	{
+		Module m = ListNetModule.getInstance(new File("msdata.listnet.module"));
+		ModuleTest tester = new ModuleTest(m);
+		BufferedReader reader = new BufferedReader(new FileReader("/home/luolei/dmc/download_data/data/fold1/test.txt"));
+		
+		String line = null;
+		while ((line = reader.readLine()) != null)
+			{
+				Document doc = MSDocument.parseDoc(line);
+				doc = m.getNormalizer().normalize(doc);
+				
+				System.out.println("res = " + tester.test(doc.getFeatures()) + " ans = " + doc.getRelevance());
+			}
+	}
 }

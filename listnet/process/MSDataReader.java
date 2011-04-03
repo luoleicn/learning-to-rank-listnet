@@ -21,6 +21,7 @@ import listnet.data.Document;
 import listnet.data.MSDocument;
 import listnet.data.Sample;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class MSDataReader.
  */
@@ -30,10 +31,10 @@ public class MSDataReader implements DataReader{
 	private File file;
 	
 	/** The reader. */
-	private BufferedReader reader;
+	protected BufferedReader reader;
 	
 	/** The sample. */
-	private Sample sample;
+	protected Sample sample;
 	
 	/**
 	 * 被构造函数调用，读入文档中第一个doc，初始化sample，把doc加入sample.
@@ -127,11 +128,12 @@ public class MSDataReader implements DataReader{
 		}		
 	}
 
+	
 	/**
 	 * 测试.
 	 *
 	 * @param args the arguments
-	 * @throws IOException 
+	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public static void main(String[] args) throws IOException
 	{
