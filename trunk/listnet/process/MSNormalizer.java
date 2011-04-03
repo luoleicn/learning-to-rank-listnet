@@ -35,7 +35,7 @@ public final class MSNormalizer implements Normalizer{
 	/**
 	 * Gets the normalizer.
 	 *
-	 * @param 训练文本文件
+	 * @param f 训练文本文件
 	 * @return the normalizer
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
@@ -61,6 +61,10 @@ public final class MSNormalizer implements Normalizer{
 			{
 				for (int i=0; i<featureSize; i++)
 				{
+					if (doc.getFeatures().size() == 7)
+					{
+						System.out.println("d");
+					}
 					double val = doc.getFeatures().get(i);
 
 					if (val > normalizer.maxmin.get(i).getMax())
@@ -119,6 +123,13 @@ public final class MSNormalizer implements Normalizer{
 		return this.maxmin;
 	}
 	
-	
+	public void debug()
+	{
+		System.out.println("MSNormalizer : ");
+		for (int i=0; i<maxmin.size(); i++)
+		{
+			System.out.println("max["+i+"] = " + maxmin.get(i).getMax() + " min["+i+"] = " + maxmin.get(i).getMin());
+		}
+	}
 
 }

@@ -18,7 +18,7 @@ public class Parameters {
 //	private static int sampleSize;
 	
 	/** 训练的轮数. */
-	private static final int EpochNum = 4000;
+	private static int EpochNum = 4000;
 	
 	/** 权重初始值. */
 	private static final double WeightInit = 0.0;
@@ -41,6 +41,10 @@ public class Parameters {
 	}
 
 	
+	public static void setEpochnum(int n) {
+		EpochNum = n;
+	}
+
 	/**
 	 * Gets the weight init.
 	 *

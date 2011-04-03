@@ -33,7 +33,7 @@ public interface Normalizer {
 	 * @return 正规化之后的样本
 	 */
 	public abstract Sample normalize(Sample sample);
-	
+	public void debug();
 	/**
 	 * 获取正规化参数
 	 *
@@ -99,5 +99,7 @@ public interface Normalizer {
 		public void setMin(double min) {
 			this.min = min;
 		}
+		
+		
 	}
 }
