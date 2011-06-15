@@ -100,12 +100,12 @@ public class Trainer {
 					weights[v] -= Parameters.getStep() * deltaW;
 				}
 			}
-//			//每一百轮训练会保存一次模型
-//			if ((i%100)==0)
-//			{
-//				Module m = ListNetModule.getInstance(weights, nor);
-//				m.write(new File(new Date().getTime()+ "_" + i));
-//			}
+			//每多少轮训练会保存一次模型
+			if ((Parameters.getSave() > 0) && (i%Parameters.getSave()==0) && i>0)
+			{
+				Module m = ListNetModule.getInstance(weights, nor);
+				m.write(new File("tmp"+ "_" + i+".listnet"));
+			}
 			//计算方差
 			double sum = 0.0;
 			for (int v=0; v<weights.length; v++)
