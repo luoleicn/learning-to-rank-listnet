@@ -26,6 +26,8 @@ public class Parameters {
 	/** 梯度下降法的学习步长. */
 	private static final double Step = 0.0025;
 	
+	/** 训练中没多少轮保存一次. */
+	private static int save = -1;
 	/**
 	 * Instantiates a new parameters.
 	 */
@@ -41,6 +43,11 @@ public class Parameters {
 	}
 
 	
+	/**
+	 * Sets the epochnum.
+	 *
+	 * @param n the new epochnum
+	 */
 	public static void setEpochnum(int n) {
 		EpochNum = n;
 	}
@@ -63,5 +70,24 @@ public class Parameters {
 	public static double getStep() {
 		return Step;
 	}
+
+	/**
+	 * Gets the save.
+	 *
+	 * @return the save
+	 */
+	public static int getSave() {
+		return save;
+	}
+
+	/**
+	 * Sets the save.
+	 *
+	 * @param save the new save
+	 */
+	public static void setSave(int save) {
+		Parameters.save = save;
+	}
+	
 	
 }
